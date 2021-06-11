@@ -1,0 +1,14 @@
+$primary: crimson;
+$silver: rgb(247, 243, 243);
+
+@mixin media($px) {
+    @media screen and (min-width: $px) {
+        @content;
+    }
+}
+
+@mixin centerIt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
