@@ -1,0 +1,31 @@
+.home {
+
+    header {
+        text-align: center;
+        padding: 150px 30px 0 30px;
+    }
+
+    form {
+        max-width: 700px;
+        margin: 30px auto;
+
+        .input-container {
+            display: flex;
+
+            input {
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+
+                &:focus {
+                    box-shadow: none;
+                }
+            }
+        }
+
+        button {
+            @include btn($primary, white);
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+    }
+}

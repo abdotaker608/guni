@@ -5,3 +5,4 @@ export const WishListRoute = '/wishlist';
 export const LoginRoute = '/login';
 export const RegisterRoute = '/register';
 export const LogoutRoute = '/logout';
+export const OrdersRoute = '/orders';

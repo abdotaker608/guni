@@ -18,7 +18,7 @@ function DesktopNav({routes, packs}) {
                         packs.map(({pack, path, Icon}) => (
                             <Link key={path} to={path}>
                                 <span className='counter'>{pack.length}</span>
-                                <Icon size={38}/>
+                                <Icon size={36}/>
                             </Link>
                         ))
                     }

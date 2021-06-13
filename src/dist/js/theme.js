@@ -14,5 +14,31 @@ const colors = {
     }
 }
 
-const theme = extendTheme({breakpoints});
+const styles = {
+    global: {
+        body: {
+            fontFamily: "Crimson Text"
+        },
+        h1: {
+            fontSize: "32pt"
+        },
+        h2: {
+            fontSize: "26pt"
+        },
+        h3: {
+            fontSize: "22pt"
+        },
+        h4: {
+            fontSize: "20pt"
+        },
+        h5: {
+            fontSize: "16pt"
+        },
+        h6: {
+            fontSize: "14pt"
+        }
+    }
+}
+
+const theme = extendTheme({breakpoints, colors, styles});
 export default theme;

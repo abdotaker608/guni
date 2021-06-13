@@ -12,3 +12,16 @@ $silver: rgb(247, 243, 243);
     justify-content: center;
     align-items: center;
 }
+
+@mixin btn($bg, $color) {
+    background: $bg;
+    color: $color;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    transition: 250ms ease-out;
+
+    &:hover {
+        background: lighten($bg, 20%);
+    }
+}

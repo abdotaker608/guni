@@ -1,11 +1,11 @@
 import React, {useEffect} from 'react';
 import MobileNav from './MobileNav';
 import DesktopNav from './DesktopNav';
-import {IndexRoute, ShopRoute, CartRoute, WishListRoute, LoginRoute, RegisterRoute, LogoutRoute} from 'router/paths';
+import {IndexRoute, ShopRoute, CartRoute, WishListRoute, LoginRoute, RegisterRoute, LogoutRoute, OrdersRoute} from 'router/paths';
 import {useHistory} from 'react-router-dom';
 import {useSelector} from 'react-redux';
 import {BiHeart as HeartIcon, BiCartAlt as CartIcon} from 'react-icons/bi';
-import {FaHome as HomeIcon, FaShoppingBag as ShopIcon, FaSignInAlt as SignInIcon, FaSignOutAlt as SignOutIcon, FaUserPlus as SignUpIcon} from 'react-icons/fa';
+import {FaHome as HomeIcon, FaShoppingBag as ShopIcon, FaSignInAlt as SignInIcon, FaSignOutAlt as SignOutIcon, FaUserPlus as SignUpIcon, FaMoneyCheckAlt as OrderIcon} from 'react-icons/fa';
 
 function Nav() {
 
@@ -28,6 +28,7 @@ function Nav() {
 
     const authRoutes = user ? 
     [
+        {path: OrdersRoute, Icon: OrderIcon, title: 'Orders'},
         {path: LogoutRoute, Icon: SignOutIcon, title: 'Logout'}
     ] :
     [

@@ -10919,8 +10919,6 @@ textarea.form-control-lg {
 body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
-  font-family: "Crimson Text";
 }
 
 .scale-container {
@@ -10932,6 +10930,7 @@ body {
   top: 0;
   left: 0;
   overflow-x: hidden;
+  min-height: 100vh;
 }
 
 .scale-enter {
@@ -10963,7 +10962,6 @@ nav {
   width: 100%;
   z-index: 1000;
   box-shadow: 0 0 5px silver;
-  font-size: 11pt;
 }
 nav .packs {
   display: flex;
@@ -11080,4 +11078,36 @@ nav .packs a .counter {
 }
 .desktop-nav .routes a:hover {
   color: crimson;
+}
+
+.home header {
+  text-align: center;
+  padding: 150px 30px 0 30px;
+}
+.home form {
+  max-width: 700px;
+  margin: 30px auto;
+}
+.home form .input-container {
+  display: flex;
+}
+.home form .input-container input {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.home form .input-container input:focus {
+  box-shadow: none;
+}
+.home form button {
+  background: crimson;
+  color: white;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  transition: 250ms ease-out;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.home form button:hover {
+  background: #f16581;
 }/*# sourceMappingURL=main.css.map */
