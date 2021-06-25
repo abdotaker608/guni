@@ -10919,6 +10919,7 @@ textarea.form-control-lg {
 body {
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 .scale-container {
@@ -11053,7 +11054,7 @@ nav .packs a .counter {
   background: #ed365b;
 }
 .mob-nav .side-menu a span {
-  margin: 3px 10px 0 10px;
+  margin: 0 10px 0 10px;
 }
 
 .desktop-nav {
@@ -11110,4 +11111,43 @@ nav .packs a .counter {
 }
 .home form button:hover {
   background: #f16581;
+}
+.home section {
+  padding: 60px 0;
+}
+.home .section__categories .cards-container {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: auto;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+@media screen and (min-width: 576px) {
+  .home .section__categories .cards-container {
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: 1.2fr 1fr;
+  }
+}
+.home .section__categories .cards-container .card {
+  margin: 10px;
+  height: 150px;
+}
+@media screen and (min-width: 576px) {
+  .home .section__categories .cards-container .card {
+    height: 100px;
+  }
+  .home .section__categories .cards-container .card:last-child {
+    height: 220px;
+    grid-column-start: 2;
+    grid-row: 1/span 2;
+  }
+}
+@media screen and (min-width: 768px) {
+  .home .section__categories .cards-container .card {
+    height: 120px;
+  }
+  .home .section__categories .cards-container .card:last-child {
+    height: 260px;
+  }
 }/*# sourceMappingURL=main.css.map */

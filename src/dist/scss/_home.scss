@@ -1,0 +1,68 @@
+.home {
+
+    header {
+        text-align: center;
+        padding: 150px 30px 0 30px;
+    }
+
+    form {
+        max-width: 700px;
+        margin: 30px auto;
+
+        .input-container {
+            display: flex;
+
+            input {
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+
+                &:focus {
+                    box-shadow: none;
+                }
+            }
+        }
+
+        button {
+            @include btn($primary, white);
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+    }
+
+    section {
+        padding: 60px 0;
+    }
+
+    .section__categories {
+        .cards-container {
+            display: grid;
+            grid-template-rows: repeat(3, 1fr);
+            grid-template-columns: auto;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 30px;
+            @include media(576px) {
+                grid-template-rows: repeat(2, 1fr);
+                grid-template-columns: 1.2fr 1fr;
+            }
+            .card {
+                margin: 10px;
+                height: 150px;
+                @include media(576px) {
+                    height: 100px;
+                    &:last-child {
+                        height: 220px;
+                        grid-column-start: 2;
+                        grid-row: 1 / span 2;
+                    }
+                }
+                @include media(768px) {
+                    height: 120px;
+                    &:last-child {
+                        height: 260px;
+                    }
+                }
+            }
+        }
+    }
+}
