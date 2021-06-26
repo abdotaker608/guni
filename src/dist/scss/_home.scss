@@ -1,4 +1,5 @@
 .home {
+    background: $silver;
 
     header {
         text-align: center;
@@ -30,7 +31,7 @@
     }
 
     section {
-        padding: 60px 0;
+        padding: 60px 0 40px 0;
     }
 
     .section__categories {
@@ -64,5 +65,9 @@
                 }
             }
         }
+    }
+
+    .section__hot {
+        padding-bottom: 80px;
     }
 }

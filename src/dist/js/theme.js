@@ -10,6 +10,7 @@ const breakpoints = createBreakpoints({
 
 const colors = {
     primary: {
+        200: "#fa5c6f",
         500: 'crimson' 
     }
 }

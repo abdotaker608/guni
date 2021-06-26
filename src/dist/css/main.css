@@ -10963,6 +10963,7 @@ nav {
   width: 100%;
   z-index: 1000;
   box-shadow: 0 0 5px silver;
+  background: white;
 }
 nav .packs {
   display: flex;
@@ -11081,6 +11082,9 @@ nav .packs a .counter {
   color: crimson;
 }
 
+.home {
+  background: #f7f3f3;
+}
 .home header {
   text-align: center;
   padding: 150px 30px 0 30px;
@@ -11113,7 +11117,7 @@ nav .packs a .counter {
   background: #f16581;
 }
 .home section {
-  padding: 60px 0;
+  padding: 60px 0 40px 0;
 }
 .home .section__categories .cards-container {
   display: grid;
@@ -11150,4 +11154,7 @@ nav .packs a .counter {
   .home .section__categories .cards-container .card:last-child {
     height: 260px;
   }
+}
+.home .section__hot {
+  padding-bottom: 80px;
 }/*# sourceMappingURL=main.css.map */

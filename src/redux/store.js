@@ -4,7 +4,7 @@ import {AuthReducer, CartReducer, WishListReducer} from './reducers';
 const reducer = {
     auth: AuthReducer,
     cart: CartReducer,
-    wishList: WishListReducer
+    wishlist: WishListReducer
 }
 const store = configureStore({
     reducer,

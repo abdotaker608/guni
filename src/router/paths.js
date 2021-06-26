@@ -6,3 +6,4 @@ export const LoginRoute = '/login';
 export const RegisterRoute = '/register';
 export const LogoutRoute = '/logout';
 export const OrdersRoute = '/orders';
+export const ProductRoute = '/product/:id';

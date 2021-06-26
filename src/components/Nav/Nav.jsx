@@ -12,11 +12,11 @@ function Nav() {
     const history = useHistory();
 
     const cart = useSelector(state => state.cart);
-    const wishList = useSelector(state => state.wishList);
+    const wishlist = useSelector(state => state.wishlist);
     const user = useSelector(state => state.auth);
 
     const packs = [
-        {pack: wishList, path: WishListRoute, Icon: HeartIcon},
+        {pack: wishlist, path: WishListRoute, Icon: HeartIcon},
         {pack: cart, path: CartRoute, Icon: CartIcon}
     ]
 
