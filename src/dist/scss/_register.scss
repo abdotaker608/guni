@@ -1,0 +1,15 @@
+.register {
+    padding-top: 130px;
+    text-align: center;
+
+    form {
+        width: 85%;
+        max-width: 700px;
+        margin: 50px auto;
+        @include media(992px) {
+            border-radius: 10px;
+            box-shadow: 0 0 10px 2px silver;
+            padding: 30px;
+        }
+    }
+}

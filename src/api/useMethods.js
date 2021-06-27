@@ -44,8 +44,23 @@ function useMethods() {
         return handleResponse(response);
     }
 
+    const post = async (endpoint, payload) => {
+        const options = {
+            headers: {
+                'Authorization': `Token ${user?.auth_token}`,
+                'Content-Type': 'application/json'
+            },
+            method: 'POST',
+            body: JSON.stringify(payload)
+        }
+        const response = await fetch(`${BaseUrl}${endpoint}`, options);
+        
+        return handleResponse(response);
+    }
+
     return {
-        get
+        get,
+        post
     }
 }
 

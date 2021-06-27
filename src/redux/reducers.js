@@ -7,7 +7,9 @@ export const AuthReducer = createReducer(null, {
 })
 
 //Cart
-export const CartReducer = createReducer([], {
+const storageCart = window.localStorage.getItem('cart');
+const initialCart = storageCart ? JSON.parse(storageCart) : [];
+export const CartReducer = createReducer(initialCart, {
     [addToCart]: (state, action) => {
         const target = state.find(item => item.id === action.payload.id);
         if (target) {
@@ -18,11 +20,18 @@ export const CartReducer = createReducer([], {
             
         }
         else state = [...state, action.payload];
+        window.localStorage.setItem('cart', JSON.stringify(state));
         return state;
     }
 })
 
 //Wishlist
-export const WishListReducer = createReducer([], {
-    [saveToWishlist]: (state, action) => state = [...state, action.payload]
+const storageWl = window.localStorage.getItem('wl');
+const initialWl = storageWl ? JSON.parse(storageWl) : [];
+export const WishListReducer = createReducer(initialWl, {
+    [saveToWishlist]: (state, action) => {
+        state = [...state, action.payload];
+        window.localStorage.setItem('wl', JSON.stringify(state));
+        return state;
+    }
 })

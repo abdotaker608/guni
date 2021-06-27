@@ -11157,4 +11157,21 @@ nav .packs a .counter {
 }
 .home .section__hot {
   padding-bottom: 80px;
+}
+
+.register {
+  padding-top: 130px;
+  text-align: center;
+}
+.register form {
+  width: 85%;
+  max-width: 700px;
+  margin: 50px auto;
+}
+@media screen and (min-width: 992px) {
+  .register form {
+    border-radius: 10px;
+    box-shadow: 0 0 10px 2px silver;
+    padding: 30px;
+  }
 }/*# sourceMappingURL=main.css.map */
