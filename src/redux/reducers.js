@@ -1,9 +1,22 @@
 import {createReducer} from '@reduxjs/toolkit';
-import {addToCart, saveToWishlist} from './actionCreators';
+import {addToCart, saveToWishlist, loginUser, verifyToken, logoutUser} from './actionCreators';
 
 //Authentication
 export const AuthReducer = createReducer(null, {
-
+    [loginUser]: (state, action) => {
+        state = action.payload;
+        window.localStorage.setItem('auth', action.payload.auth_token);
+        return state;
+    },
+    [verifyToken.fulfilled]: (state, action) => {
+        state = action.payload;
+        return state;
+    },
+    [logoutUser]: (state) => {
+        state = null;
+        window.localStorage.removeItem('auth');
+        return state;
+    }
 })
 
 //Cart

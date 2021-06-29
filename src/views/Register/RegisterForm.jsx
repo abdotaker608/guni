@@ -41,11 +41,11 @@ function RegisterForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         const isValid = validate();
-        if (!isValid) return;
+        if (!isValid || processing) return;
         const data = {...registerData};
         delete data.confirm_password;
         setProcessing(true);
-        const response = await registerUser(data).catch(Boolean);
+        const response = await registerUser(data);
         setProcessing(false);
         if (response) {
             if (response.success) {
@@ -96,7 +96,7 @@ function RegisterForm() {
             </Row>
             <Row className='mt-1 g-3'>
                 <Col sm={12} className='text-center'>
-                    <Button colorScheme="primary" type="submit" isLoading={processing} spinner={<CSpinner />}>Submit</Button>
+                    <Button bg="primary.500" color="white" type="submit" isLoading={processing} spinner={<CSpinner />} transition="150ms ease-out" _hover={{bg: 'primary.200'}}>Submit</Button>
                 </Col>
             </Row>
         </Form>

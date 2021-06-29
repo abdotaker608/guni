@@ -4,6 +4,7 @@ export const CartRoute = '/cart';
 export const WishListRoute = '/wishlist';
 export const LoginRoute = '/login';
 export const RegisterRoute = '/register';
+export const VerifyRoute = '/verify';
 export const LogoutRoute = '/logout';
 export const OrdersRoute = '/orders';
 export const ProductRoute = '/product/:id';

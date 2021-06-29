@@ -10961,7 +10961,7 @@ nav {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
+  z-index: 500;
   box-shadow: 0 0 5px silver;
   background: white;
 }
@@ -11159,19 +11159,27 @@ nav .packs a .counter {
   padding-bottom: 80px;
 }
 
-.register {
+.register, .login {
   padding-top: 130px;
   text-align: center;
 }
-.register form {
+.register form, .login form {
   width: 85%;
   max-width: 700px;
   margin: 50px auto;
 }
 @media screen and (min-width: 992px) {
-  .register form {
+  .register form, .login form {
     border-radius: 10px;
     box-shadow: 0 0 10px 2px silver;
     padding: 30px;
   }
+}
+
+.verify, .logout {
+  padding-top: 250px;
+  background: #f7f3f3;
+  min-height: 100%;
+  position: absolute;
+  width: 100%;
 }/*# sourceMappingURL=main.css.map */

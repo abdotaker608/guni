@@ -1,4 +1,4 @@
-.register {
+.register, .login {
     padding-top: 130px;
     text-align: center;
 
@@ -12,4 +12,12 @@
             padding: 30px;
         }
     }
+}
+
+.verify, .logout {
+    padding-top: 250px;
+    background: $silver;
+    min-height: 100%;
+    position: absolute;
+    width: 100%;
 }

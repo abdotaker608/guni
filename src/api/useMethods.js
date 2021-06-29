@@ -6,16 +6,6 @@ function useMethods() {
 
     const user = useSelector(state => state.auth);
 
-    const handleResponse = async (res) => {
-        try {
-            const json = res.json();
-            return json;
-        }
-        catch(e) {
-            return null;
-        }
-    }
-
     const get = async (endpoint, kwargs, params) => {
         let queryString = '';
     
@@ -40,22 +30,33 @@ function useMethods() {
                 'Authorization': `Token ${user?.auth_token}`
             }
         })
+            .catch(() => null);
         
         return handleResponse(response);
     }
 
     const post = async (endpoint, payload) => {
-        const options = {
+        const response = await fetch(`${BaseUrl}${endpoint}`, {
             headers: {
                 'Authorization': `Token ${user?.auth_token}`,
                 'Content-Type': 'application/json'
             },
             method: 'POST',
             body: JSON.stringify(payload)
-        }
-        const response = await fetch(`${BaseUrl}${endpoint}`, options);
+        })
+            .catch(() => null);
         
         return handleResponse(response);
+    }
+
+    const handleResponse = async (res) => {
+        try {
+            const json = res.json();
+            return json;
+        }
+        catch(e) {
+            return null;
+        }
     }
 
     return {

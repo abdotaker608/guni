@@ -9,9 +9,21 @@ function useMutations() {
         const response = await post('/auth/register', registerData);
         return response;
     }
+
+    const verifyUser = async (token) => {
+        const response = await post('/auth/verify', {token});
+        return response;
+    }
+    
+    const loginUser = async (loginData) => {
+        const response = await post('/auth/login', loginData);
+        return response;
+    } 
     
     return {
-        registerUser
+        registerUser,
+        verifyUser,
+        loginUser
     }
 
 }
