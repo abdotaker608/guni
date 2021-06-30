@@ -1,5 +1,6 @@
 import {createReducer} from '@reduxjs/toolkit';
-import {addToCart, saveToWishlist, loginUser, verifyToken, logoutUser} from './actionCreators';
+import {addToCart, saveToWishlist, loginUser, verifyToken, logoutUser, 
+removeFromWishlist} from './actionCreators';
 
 //Authentication
 export const AuthReducer = createReducer(null, {
@@ -27,7 +28,7 @@ export const CartReducer = createReducer(initialCart, {
         const target = state.find(item => item.id === action.payload.id);
         if (target) {
             if (action.payload.qty > 0) {
-                state = [...state.filter(item => item.id !== target.id), action.payload];
+                target.qty = action.payload.qty;
             }
             else state = state.filter(item => item.id !== target.id);
             
@@ -44,6 +45,11 @@ const initialWl = storageWl ? JSON.parse(storageWl) : [];
 export const WishListReducer = createReducer(initialWl, {
     [saveToWishlist]: (state, action) => {
         state = [...state, action.payload];
+        window.localStorage.setItem('wl', JSON.stringify(state));
+        return state;
+    },
+    [removeFromWishlist]: (state, action) => {
+        state = state.filter(item => item.id !== action.payload.id);
         window.localStorage.setItem('wl', JSON.stringify(state));
         return state;
     }

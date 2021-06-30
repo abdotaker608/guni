@@ -1,11 +1,13 @@
 import {createAction, createAsyncThunk} from '@reduxjs/toolkit';
-import {ADD_TO_CART, SAVE_TO_WISHLIST, LOGIN_USER, VERIFY_TOKEN, LOGOUT_USER} from './actions';
+import {ADD_TO_CART, SAVE_TO_WISHLIST, LOGIN_USER, VERIFY_TOKEN, LOGOUT_USER,
+REMOVE_FROM_WISHLIST} from './actions';
 import {BaseUrl} from 'api/index';
 
 export const addToCart = createAction(ADD_TO_CART);
 export const saveToWishlist = createAction(SAVE_TO_WISHLIST);
 export const loginUser = createAction(LOGIN_USER);
 export const logoutUser = createAction(LOGOUT_USER);
+export const removeFromWishlist = createAction(REMOVE_FROM_WISHLIST);
 
 //Thunks
 export const verifyToken = createAsyncThunk(VERIFY_TOKEN, async (thunkAPI) => {
@@ -20,7 +22,7 @@ export const verifyToken = createAsyncThunk(VERIFY_TOKEN, async (thunkAPI) => {
     
     try {
         const json = await response.json();
-        if (json.pk) return json;
+        if (json.id) return json;
         thunkAPI.rejectWithValue();
     }
     catch(e) {

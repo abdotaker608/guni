@@ -3,7 +3,7 @@ import {Box, Image, Text, Slider, SliderTrack, SliderFilledTrack, SliderThumb, B
 import {Link} from 'react-router-dom';
 import {ProductRoute} from 'router/paths';
 import {useSelector, useDispatch} from 'react-redux';
-import {addToCart, saveToWishlist} from 'redux/actionCreators';
+import {addToCart, saveToWishlist, removeFromWishlist} from 'redux/actionCreators';
 import SalesBanner from 'dist/images/banners.svg';
 import {FaPlus, FaMinus} from 'react-icons/fa';
 
@@ -24,7 +24,7 @@ function Product({product, location}) {
     }
     
     return (
-        <Box width="180px">
+        <Box width="180px" className='product'>
             <Link to={ProductRoute.replace(':id', product.id)}>
                 <Box position='relative'>
                     <Image src={product.image} height="180px" rounded={10} transition="150ms ease-out" boxShadow="0 0 5px 1px transparent" _hover={{boxShadow: '0 0 5px 1px crimson'}}/>
@@ -56,15 +56,19 @@ function Product({product, location}) {
                 </Slider>
                 <IconButton size={0} padding="5px" rounded="full" background="primary.200" transition="250ms ease-out" _hover={{background: "primary.500"}} icon={<FaPlus color="white" size={12}/>} variant="solid" onClick={() => handleQtyChange(qty + 1)}/>
             </Box>
-            {
-                location !== 'wishlist' &&
-                <Box>
-                    <Box textAlign="center">{qty} in Cart</Box>
+            <Box>
+                <Box textAlign="center">{qty} in Cart</Box>
+                {
+                    location !== 'wishlist' ?
                     <Button minW="100%" colorScheme="pink" marginTop="5px" size='sm' onClick={() => dispatch(saveToWishlist(product))} disabled={inWishlist}>
-                        {inWishlist ? 'In Wishlist' : 'Save to Wishlist'}
+                    {inWishlist ? 'In Wishlist' : 'Save to Wishlist'}
                     </Button>
-                </Box>
-            }
+                    :
+                    <Button minW="100%" colorScheme="pink" marginTop="5px" size='sm' onClick={() => dispatch(removeFromWishlist(product))}>
+                        Remove from Wishlist
+                    </Button>
+                }
+            </Box>
         </Box>
     )
 }

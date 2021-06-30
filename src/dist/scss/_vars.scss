@@ -20,8 +20,15 @@ $silver: rgb(247, 243, 243);
     outline: none;
     border: none;
     transition: 250ms ease-out;
+    padding: 5px 10px;
 
-    &:hover {
+    &:disabled {
+        background: darken($silver, 5%);
+        color: gray;
+        cursor: not-allowed;
+    }
+
+    &:not(:disabled):hover {
         background: lighten($bg, 20%);
     }
 }

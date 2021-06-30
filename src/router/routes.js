@@ -1,10 +1,13 @@
-import {IndexRoute, ShopRoute, RegisterRoute, VerifyRoute, LogoutRoute, LoginRoute} from './paths';
+import {IndexRoute, ShopRoute, RegisterRoute, VerifyRoute, LogoutRoute, LoginRoute, 
+CartRoute, WishListRoute} from './paths';
 import Home from 'views/Home/Home';
 import Shop from 'views/Shop/Shop';
 import Register from 'views/Register/Register';
 import Verify from 'views/Verify/Verify';
 import Logout from 'views/Logout/Logout';
 import Login from 'views/Login/Login';
+import Cart from 'views/Cart/Cart';
+import Wishlist from 'views/Wishlist/Wishlist';
 
 const routes = [
     {path: IndexRoute, Component: Home},
@@ -12,7 +15,9 @@ const routes = [
     {path: RegisterRoute, Component: Register},
     {path: VerifyRoute, Component: Verify},
     {path: LogoutRoute, Component: Logout},
-    {path: LoginRoute, Component: Login}
+    {path: LoginRoute, Component: Login},
+    {path: CartRoute, Component: Cart},
+    {path: WishListRoute, Component: Wishlist}
 ]
 
 export default routes;
