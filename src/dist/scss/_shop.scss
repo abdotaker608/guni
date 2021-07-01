@@ -1,0 +1,26 @@
+.shop {
+    padding-top: 130px;
+
+    .filters {
+        width: 90%;
+        margin: 30px auto;
+
+        .ps {
+            padding: 15px 0 0 0;
+        }
+
+        .price-slider {
+            margin: 25px auto;
+        }
+
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            padding-top: 25px;
+
+            .form-check {
+                margin: 5px 10px;
+            }
+        }
+    }
+}

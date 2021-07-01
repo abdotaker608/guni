@@ -10,8 +10,14 @@ function useQueries() {
         return response;
     }
 
+    const getFilteredProducts = async (params) => {
+        const response = await get('/product/f', null, params);
+        return response;
+    }
+
     return {
-        getProducts
+        getProducts,
+        getFilteredProducts
     }
 
 }

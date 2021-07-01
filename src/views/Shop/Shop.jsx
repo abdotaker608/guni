@@ -1,9 +1,18 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import Filters from './Filters';
+import Products from './Products';
 
 function Shop() {
+
+    const [filters, setFilters] = useState(null);
+
     return (
-        <div>
-            
+        <div className='shop'>
+            <Filters filterize={(newFilters) => setFilters(newFilters)}/>
+            {
+                filters &&
+                <Products filters={filters}/>
+            }
         </div>
     )
 }

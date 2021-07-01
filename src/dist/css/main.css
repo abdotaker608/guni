@@ -11277,4 +11277,26 @@ nav .packs a .counter {
   .cart .products-container .product, .wishlist .products-container .product {
     margin: 20px 50px;
   }
+}
+
+.shop {
+  padding-top: 130px;
+}
+.shop .filters {
+  width: 90%;
+  margin: 30px auto;
+}
+.shop .filters .ps {
+  padding: 15px 0 0 0;
+}
+.shop .filters .price-slider {
+  margin: 25px auto;
+}
+.shop .filters .categories {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 25px;
+}
+.shop .filters .categories .form-check {
+  margin: 5px 10px;
 }/*# sourceMappingURL=main.css.map */

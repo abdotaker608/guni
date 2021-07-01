@@ -11,10 +11,7 @@ function Cart() {
     const cart = useSelector(state => state.cart);
 
     const calculateTotalPrice = () => {
-        let total = 0;
-        cart.forEach(item => {
-            total += item.qty * item.price;
-        })
+        const total = cart.map(item => item.qty * item.price).reduce((acc, val) => acc + val, 0);
         return total.toFixed(2);
     }
 

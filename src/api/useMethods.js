@@ -12,7 +12,7 @@ function useMethods() {
         if (params) {
             let index = 0;
             for (const [key, value] of Object.entries(params)) {
-                if (value) {
+                if (value || value === 0) {
                     queryString += `${index === 0 ? '?' : '&'}${key}=${value}`;
                     index += 1;
                 }

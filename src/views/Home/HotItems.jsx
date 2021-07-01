@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import useQueries from 'api/useQueries';
 import Slider from 'react-slick';
 import useQuery from 'hooks/useQuery';
@@ -11,8 +11,10 @@ function HotItems() {
 
     const {getProducts} = useQueries();
 
-    const {data: products, loading, error} = useQuery(getProducts, {hot: true});
+    const [params] = useState({hot: true});
 
+    const {data: products, loading, error} = useQuery(getProducts, params);
+    
     return (
         <section className='section__hot'>
             {
