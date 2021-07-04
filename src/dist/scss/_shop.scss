@@ -1,9 +1,19 @@
 .shop {
     padding-top: 130px;
 
+    @include media(992px) {
+        display: flex;
+    }
+
     .filters {
         width: 90%;
         margin: 30px auto;
+
+        @include media(992px) {
+            margin: 0;
+            width: 20%;
+            padding: 0 30px;
+        }
 
         .ps {
             padding: 15px 0 0 0;
@@ -20,6 +30,59 @@
 
             .form-check {
                 margin: 5px 10px;
+            }
+
+            @include media(992px) {
+                flex-direction: column;
+                align-items: flex-start;
+                flex-wrap: unset;
+
+                .form-check {
+                    margin: 5px 0;
+                }
+            }
+        }
+    }
+
+    .products-container {
+        background: $silver;
+        min-height: 600px;
+
+        @include media(992px) {
+            width: 80%;
+        }
+
+        .err-msg {
+            min-height: 400px;
+            @include centerIt;
+        }
+
+        .products {
+            min-height: 400px;
+            width: 180px;
+            margin: 0 auto;
+            padding: 60px 0;
+            display: flex;
+            flex-wrap: wrap;
+
+            .product {
+                margin: 40px 0;
+            }
+
+            @include media(576px) {
+                width: (180px * 2) + (40px * 2 * 2);
+
+                .product {
+                    margin: 40px;
+                }
+            }
+
+            @include media(768px) {
+                width: (180px * 3) + (40px * 3 * 2);
+            }
+
+            @include media(1280px) {
+                width: (180px * 4) + (40px * 4 * 2);
             }
         }
     }

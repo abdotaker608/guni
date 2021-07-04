@@ -7,7 +7,7 @@ import {RiFilterOffFill as FilterOffIcon} from 'react-icons/ri';
 
 function Filters({filterize}) {
 
-    const initialFilters = {price__lte: 5000, price__gte: 0};
+    const initialFilters = {price__lte: 5000, price__gte: 0, page: 1};
     const [filters, setFilters] = useState(initialFilters);
 
     const [lastClear, setLastClear] = useState(null);
@@ -41,6 +41,10 @@ function Filters({filterize}) {
         }
     }
 
+    const handleCheckChange = (e) => {
+        setFilters({...filters, [e.target.name]: e.target.checked});
+    }
+
     const resetFilters = () => {
         setFilters(initialFilters);
         filtersForm.current.reset();
@@ -48,7 +52,7 @@ function Filters({filterize}) {
     }
 
     useEffect(() => {
-        filterize(filters);
+        filterize({...filters, page: 1});
     }, [filters])
 
     useEffect(() => {
@@ -61,7 +65,7 @@ function Filters({filterize}) {
         <form className='filters' ref={target => filtersForm.current = target}>
             <Input placeholder="Search here.." onChange={handleSearchChange} focusBorderColor="primary.200" type="search"/>
             <div className='ps'>
-                <Form.Check onChange={(e) => setFilters({...filters, on_sale: e.target.checked})} label="On Sale" />
+                <Form.Check onChange={handleCheckChange} label="On Sale" name="on_sale" />
                 <PriceSlider key={lastClear} values={[0, 5000]} min={0} max={5000} onChange={handlePriceFilterChange}/>
             </div>
             <div>

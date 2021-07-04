@@ -12,6 +12,9 @@ const colors = {
     primary: {
         200: "#fa5c6f",
         500: 'crimson' 
+    },
+    secondary: {
+        200: "rgb(247, 243, 243)"
     }
 }
 

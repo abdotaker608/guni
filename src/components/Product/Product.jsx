@@ -17,7 +17,6 @@ function Product({product, location}) {
     const inWishlist = wishlist.find(item => item.id === product.id);
 
     const handleQtyChange = (val) => {
-        console.log(val);
         const MAX = 100;
         if (val <= MAX && val >= 0) {
             dispatch(addToCart({...product, qty: val}));

@@ -11282,9 +11282,21 @@ nav .packs a .counter {
 .shop {
   padding-top: 130px;
 }
+@media screen and (min-width: 992px) {
+  .shop {
+    display: flex;
+  }
+}
 .shop .filters {
   width: 90%;
   margin: 30px auto;
+}
+@media screen and (min-width: 992px) {
+  .shop .filters {
+    margin: 0;
+    width: 20%;
+    padding: 0 30px;
+  }
 }
 .shop .filters .ps {
   padding: 15px 0 0 0;
@@ -11299,4 +11311,58 @@ nav .packs a .counter {
 }
 .shop .filters .categories .form-check {
   margin: 5px 10px;
+}
+@media screen and (min-width: 992px) {
+  .shop .filters .categories {
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: unset;
+  }
+  .shop .filters .categories .form-check {
+    margin: 5px 0;
+  }
+}
+.shop .products-container {
+  background: #f7f3f3;
+  min-height: 600px;
+}
+@media screen and (min-width: 992px) {
+  .shop .products-container {
+    width: 80%;
+  }
+}
+.shop .products-container .err-msg {
+  min-height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.shop .products-container .products {
+  min-height: 400px;
+  width: 180px;
+  margin: 0 auto;
+  padding: 60px 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+.shop .products-container .products .product {
+  margin: 40px 0;
+}
+@media screen and (min-width: 576px) {
+  .shop .products-container .products {
+    width: 520px;
+  }
+  .shop .products-container .products .product {
+    margin: 40px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .shop .products-container .products {
+    width: 780px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .shop .products-container .products {
+    width: 1040px;
+  }
 }/*# sourceMappingURL=main.css.map */
