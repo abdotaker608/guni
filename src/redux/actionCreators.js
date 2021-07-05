@@ -1,9 +1,10 @@
 import {createAction, createAsyncThunk} from '@reduxjs/toolkit';
 import {ADD_TO_CART, SAVE_TO_WISHLIST, LOGIN_USER, VERIFY_TOKEN, LOGOUT_USER,
-REMOVE_FROM_WISHLIST} from './actions';
+REMOVE_FROM_WISHLIST, EMPTY_CART} from './actions';
 import {BaseUrl} from 'api/index';
 
 export const addToCart = createAction(ADD_TO_CART);
+export const emptyCart = createAction(EMPTY_CART);
 export const saveToWishlist = createAction(SAVE_TO_WISHLIST);
 export const loginUser = createAction(LOGIN_USER);
 export const logoutUser = createAction(LOGOUT_USER);

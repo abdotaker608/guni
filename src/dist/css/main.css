@@ -10956,6 +10956,24 @@ body {
   transition: 300ms ease-out;
 }
 
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: 300ms ease-out;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: 300ms ease-out;
+}
+
 nav {
   position: fixed;
   top: 0;
@@ -11277,6 +11295,19 @@ nav .packs a .counter {
   .cart .products-container .product, .wishlist .products-container .product {
     margin: 20px 50px;
   }
+}
+.cart #checkout-form, .wishlist #checkout-form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 500;
+  background: white;
+  box-shadow: 0 0 10px 2px silver;
+  border-radius: 15px;
+  width: 90%;
+  padding: 15px 30px 30px 30px;
+  max-width: 750px;
 }
 
 .shop {

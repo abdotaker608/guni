@@ -60,4 +60,18 @@
             }
         }
     }
+
+    #checkout-form {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 500;
+        background: white;
+        box-shadow: 0 0 10px 2px silver;
+        border-radius: 15px;
+        width: 90%;
+        padding: 15px 30px 30px 30px;
+        max-width: 750px;
+    }
 }

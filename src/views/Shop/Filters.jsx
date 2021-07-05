@@ -4,11 +4,14 @@ import PriceSlider from 'components/CompoundSlider/CompoundSlider';
 import {ProductCategories} from 'api/index';
 import {Form} from 'react-bootstrap';
 import {RiFilterOffFill as FilterOffIcon} from 'react-icons/ri';
+import useSearch from 'hooks/useSearch';
 
 function Filters({filterize}) {
 
+    const {search: searchQuery} = useSearch();
+
     const initialFilters = {price__lte: 5000, price__gte: 0, page: 1};
-    const [filters, setFilters] = useState(initialFilters);
+    const [filters, setFilters] = useState({...initialFilters, search: searchQuery});
 
     const [lastClear, setLastClear] = useState(null);
 
@@ -63,7 +66,7 @@ function Filters({filterize}) {
 
     return (
         <form className='filters' ref={target => filtersForm.current = target}>
-            <Input placeholder="Search here.." onChange={handleSearchChange} focusBorderColor="primary.200" type="search"/>
+            <Input placeholder="Search here.." onChange={handleSearchChange} focusBorderColor="primary.200" type="search" defaultValue={searchQuery}/>
             <div className='ps'>
                 <Form.Check onChange={handleCheckChange} label="On Sale" name="on_sale" />
                 <PriceSlider key={lastClear} values={[0, 5000]} min={0} max={5000} onChange={handlePriceFilterChange}/>

@@ -1,6 +1,6 @@
 import {createReducer} from '@reduxjs/toolkit';
 import {addToCart, saveToWishlist, loginUser, verifyToken, logoutUser, 
-removeFromWishlist} from './actionCreators';
+removeFromWishlist, emptyCart} from './actionCreators';
 
 //Authentication
 export const AuthReducer = createReducer(null, {
@@ -35,6 +35,11 @@ export const CartReducer = createReducer(initialCart, {
         }
         else state = [...state, action.payload];
         window.localStorage.setItem('cart', JSON.stringify(state));
+        return state;
+    },
+    [emptyCart]: (state) => {
+        state = [];
+        window.localStorage.removeItem('cart');
         return state;
     }
 })

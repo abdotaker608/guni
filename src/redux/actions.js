@@ -1,4 +1,5 @@
 export const ADD_TO_CART = 'ADD_TO_CART';
+export const EMPTY_CART = 'EMPTY_CART';
 export const SAVE_TO_WISHLIST = 'SAVE_TO_WISHLIST';
 export const REMOVE_FROM_WISHLIST = 'REMOVE_FROM_WISHLIST';
 export const LOGIN_USER = 'LOGIN_USER';
