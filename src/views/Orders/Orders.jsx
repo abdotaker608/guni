@@ -49,7 +49,7 @@ function Orders() {
                                 <tbody>
                                     {
                                         data.results?.map(order => (
-                                            <tr>
+                                            <tr key={order.id}>
                                                 <td>{order.id}</td>
                                                 <td>{order.total_price}$</td>
                                                 <td>
