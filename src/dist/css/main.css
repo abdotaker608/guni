@@ -11103,7 +11103,7 @@ nav .packs a .counter {
 .home {
   background: #f7f3f3;
 }
-.home header {
+.home > header {
   text-align: center;
   padding: 150px 30px 0 30px;
 }
@@ -11140,7 +11140,7 @@ nav .packs a .counter {
 .home form button:not(:disabled):hover {
   background: #f16581;
 }
-.home section {
+.home > section {
   padding: 60px 0 40px 0;
 }
 .home .section__categories .cards-container {
