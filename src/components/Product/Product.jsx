@@ -1,13 +1,13 @@
-import React, {useEffect} from 'react';
-import {Box, Image, Text, Slider, SliderTrack, SliderFilledTrack, SliderThumb, Button, IconButton} from '@chakra-ui/react';
-import {Link} from 'react-router-dom';
-import {ProductRoute} from 'router/paths';
+import React from 'react';
+import {Box, Image, Text, Slider, SliderTrack, SliderFilledTrack, SliderThumb, Button, IconButton, Popover, PopoverTrigger, PopoverBody, PopoverArrow, PopoverContent, PopoverHeader, Heading, useMediaQuery} from '@chakra-ui/react';
 import {useSelector, useDispatch} from 'react-redux';
 import {addToCart, saveToWishlist, removeFromWishlist} from 'redux/actionCreators';
 import SalesBanner from 'dist/images/banners.svg';
 import {FaPlus, FaMinus} from 'react-icons/fa';
 
 function Product({product, location}) {
+
+    const [largerThan768] = useMediaQuery('(min-width: 768px)');
 
     const cart = useSelector(state => state.cart);
     const wishlist = useSelector(state => state.wishlist);
@@ -25,20 +25,33 @@ function Product({product, location}) {
     
     return (
         <Box width="180px" className='product'>
-            <Link to={ProductRoute.replace(':id', product.id)}>
-                <Box position='relative'>
-                    <Image src={product.image} height="180px" rounded={10} transition="150ms ease-out" boxShadow="0 0 5px 1px transparent" _hover={{boxShadow: '0 0 5px 1px crimson'}}/>
-                    {
-                        product.on_sale &&
-                        <Box position='absolute' transform="rotate(45deg)" width="60px" height="35px" right={-3} top={0}>
-                            <Image src={SalesBanner} />
-                        </Box>
-                    }
-                </Box>
-            </Link>
-            <Link to={ProductRoute.replace(':id', product.id)}>
-                <Text textAlign="center" fontSize={18} paddingTop="5px" transition="150ms ease-out">{product.name}</Text>
-            </Link>
+            <Popover trigger='hover' placement={largerThan768 ? 'right-end' : 'bottom'} openDelay={0} closeDelay={0}>
+                <PopoverTrigger>
+                    <Box position='relative'>
+                    <Image src={product.image} height="180px" width='100%' rounded={10} transition="150ms ease-out" boxShadow="0 0 5px 1px transparent" _hover={{boxShadow: '0 0 5px 1px crimson'}}/>
+                        {
+                            product.on_sale &&
+                            <Box position='absolute' transform="rotate(45deg)" width="60px" height="35px" right={-3} top={0}>
+                                <Image src={SalesBanner} />
+                            </Box>
+                        }
+                    </Box>
+                </PopoverTrigger>
+                <PopoverContent paddingBlock="10px">
+                    <PopoverArrow />
+                    <PopoverHeader>
+                        <Heading fontSize={15}>Description</Heading>
+                    </PopoverHeader>
+                    <PopoverBody>
+                        <Text color="gray" fontSize={14}>
+                            {
+                                product.description || "No description available."
+                            }
+                        </Text>
+                    </PopoverBody>
+                </PopoverContent>
+            </Popover>
+            <Text textAlign="center" fontSize={18} paddingTop="5px" transition="150ms ease-out">{product.name}</Text>
             <Box d="flex" justifyContent="space-around">
                 {
                     product.on_sale &&

@@ -4,7 +4,7 @@ export const ProductCategories = [
     "Clothes",
     "Accessories",
     "Cooking Utilities",
-    "Electric Appliances",
+    "Electronics",
     "Gaming",
     "Sports"
 ]
