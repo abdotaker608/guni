@@ -11396,4 +11396,35 @@ nav .packs a .counter {
   .shop .products-container .products {
     width: 1040px;
   }
+}
+
+.orders {
+  padding-top: 130px;
+}
+.orders .orders-container {
+  max-width: 90%;
+  margin: 30px auto;
+  overflow-x: auto;
+}
+.orders .orders-container table {
+  table-layout: fixed;
+  min-width: 100%;
+  text-align: center;
+}
+.orders .orders-container table tbody {
+  color: gray;
+}
+.orders .orders-container table tbody tr:nth-child(odd) {
+  background: #f7f3f3;
+}
+.orders .orders-container table td, .orders .orders-container table th {
+  padding: 5px 10px;
+  white-space: pre;
+}
+.orders .orders-container table td svg, .orders .orders-container table th svg {
+  margin: 0 auto;
+}
+.orders .orders-container .page-link {
+  padding-top: 0.15rem;
+  padding-bottom: 0.15rem;
 }/*# sourceMappingURL=main.css.map */

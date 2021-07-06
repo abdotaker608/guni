@@ -17,7 +17,7 @@ function Product({product, location}) {
     const inWishlist = wishlist.find(item => item.id === product.id);
 
     const handleQtyChange = (val) => {
-        const MAX = 100;
+        const MAX = 20;
         if (val <= MAX && val >= 0) {
             dispatch(addToCart({...product, qty: val}));
         }
@@ -48,7 +48,7 @@ function Product({product, location}) {
             </Box>
             <Box d="flex" justifyContent="space-between" alignItems="center" mt={3}>
                 <IconButton size={0} padding="5px" rounded="full" background="primary.200" transition="250ms ease-out" _hover={{background: "primary.500"}} icon={<FaMinus color="white" size={12}/>} variant="solid" onClick={() => handleQtyChange(qty - 1)}/>
-                <Slider value={qty} onChange={handleQtyChange} w="60%">
+                <Slider value={qty} onChange={handleQtyChange} w="60%" max={20} min={0}>
                     <SliderTrack>
                         <SliderFilledTrack bg="primary.200"/>
                     </SliderTrack>

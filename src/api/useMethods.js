@@ -24,7 +24,7 @@ function useMethods() {
                 endpoint = endpoint.replace(key, value);
             }
         }
-
+        
         const response = await fetch(`${BaseUrl}${endpoint}${queryString}`, {
             headers: {
                 'Authorization': `Token ${user?.auth_token}`

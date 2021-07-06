@@ -11,7 +11,8 @@ import { clientsClaim } from 'workbox-core';
 import { ExpirationPlugin } from 'workbox-expiration';
 import { precacheAndRoute, createHandlerBoundToURL } from 'workbox-precaching';
 import { registerRoute } from 'workbox-routing';
-import { StaleWhileRevalidate } from 'workbox-strategies';
+import { StaleWhileRevalidate, NetworkFirst } from 'workbox-strategies';
+import {BaseUrl} from 'api/index';
 
 clientsClaim();
 
@@ -50,7 +51,7 @@ registerRoute(
 // precache, in this case same-origin .png requests like those from in public/
 registerRoute(
   // Add in any other file extensions or routing criteria as needed.
-  ({ url }) => url.origin === self.location.origin && url.pathname.endsWith('.png'), // Customize this strategy as needed, e.g., by changing to CacheFirst.
+  ({ url }) => url.pathname.match(/\.(png | jpeg | jpg | svg)/i), // Customize this strategy as needed, e.g., by changing to CacheFirst.
   new StaleWhileRevalidate({
     cacheName: 'images',
     plugins: [
@@ -60,6 +61,19 @@ registerRoute(
     ],
   })
 );
+
+//Caching API Calls
+registerRoute(
+  ({url}) => url.host.includes(BaseUrl),
+  new NetworkFirst({
+    cacheName: 'V1',
+    plugins: [
+      new ExpirationPlugin({
+        maxEntries: 100
+      })
+    ]
+  })
+)
 
 // This allows the web app to trigger skipWaiting via
 // registration.waiting.postMessage({type: 'SKIP_WAITING'})

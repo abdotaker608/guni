@@ -15,9 +15,15 @@ function useQueries() {
         return response;
     }
 
+    const getOrders = async (params) => {
+        const response = await get('/product/orders', null, params);
+        return response;
+    }
+
     return {
         getProducts,
-        getFilteredProducts
+        getFilteredProducts,
+        getOrders
     }
 
 }
