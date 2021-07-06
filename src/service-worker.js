@@ -62,18 +62,6 @@ registerRoute(
   })
 );
 
-//Caching API Calls
-registerRoute(
-  ({url}) => url.host.includes(BaseUrl),
-  new NetworkFirst({
-    cacheName: 'V1',
-    plugins: [
-      new ExpirationPlugin({
-        maxEntries: 100
-      })
-    ]
-  })
-)
 
 // This allows the web app to trigger skipWaiting via
 // registration.waiting.postMessage({type: 'SKIP_WAITING'})
@@ -84,3 +72,16 @@ self.addEventListener('message', (event) => {
 });
 
 // Any other custom service worker logic can go here.
+
+//Caching API Calls
+registerRoute(
+  ({url}) => url.href.includes(BaseUrl),
+  new NetworkFirst({
+    cacheName: 'v1',
+    plugins: [
+      new ExpirationPlugin({
+        maxEntries: 100
+      })
+    ]
+  })
+)
